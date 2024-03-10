@@ -27,6 +27,7 @@ WHERE `column_name` BETWEEN `value` AND `value`;
 ### LIKE语句
 #### 作用：模糊查询，更准确规范的解决文本比较问题。
 #### 语法1: WHERE `column_name` LIKE  `value`;
+WHERE `email` LIKE '%@qq.com'
 
 ### ORDER BY语句
 #### 语法1：升序 ASC（默认排序）
