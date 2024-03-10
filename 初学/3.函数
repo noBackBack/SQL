@@ -1,5 +1,64 @@
 # 算数函数
-### AVG()函数
+### AVG()函数：求平均值
 #### 语法：AS
 SELECT AVG(`student_count`) AS `average_student_count` 
 FROM `courses`;
+
+### MAX()函数：求极值
+#### 语法：
+SELECT MAX(`column_name`) 
+FROM `table_name`;
+#### 作用：返回指定列中的最大值
+
+### MIN()函数：求极值
+
+### SUM()函数：求总和
+
+### ROUND()函数：求四舍五入数
+#### 语法：
+SELECT ROUND(`column_name`, `decimals`) 
+FROM `table_name`;
+- decimals 规定要返回的小数位数
+- ROUND() 函数始终返回一个值。当 decimals 为正数时，column_name 四舍五入为 decimals 所指定的小数位数。
+- 当 decimals 为负数时，column_name 则按 decimals 所指定的在小数点的左边四舍五入。
+- decimals 为负数且大于小数点前的数字个数，ROUND() 函数将返回 0。
+
+#### 语法1：ROUND(X)
+#### 作用：ROUND( X )：返回参数 X 四舍五入后的一个整数。
+#### 语法2：ROUND(X, D)
+#### 作用：返回参数 X 四舍五入且保留 D 位小数后的一个数字。
+
+### ISNULL()函数：判断字段是否为 NULL
+#### 语法：
+SELECT ISNULL(`column_name`)
+FROM `table_name`;
+-- return 0或1（True) --
+
+### IFNULL()函数 / COALESCE(column_name, value)
+#### 语法：
+SELECT IFNULL(`column_name`, `value`)
+FROM `table_name`;
+#### 作用：如果 column_name 列中的某个字段是 NULL 则返回 value 值，不是则返回对应内容。
+#### COALESCE(column_name, value)用法同IFNULL()
+
+### COUNT()函数
+#### 语法1：COUNT( column_name )
+#### 作用：除去NULL行，便于统计缺失值。
+#### 语法2：COUNT(*)
+#### 作用：包括NULL行与重复行，便于查看表中的记录数。
+#### 语法3：COUNT(DISTINCT column_name)
+#### 作用：不包括NULL行与重复行
+
+# 时间函数
+### NOW()
+#### 作用：返回当前日期和时间 格式：YYYY-MM-DD hh:mm:ss
+### CURTIME()
+#### 作用：返回当前时间 格式：hh:mm:ss
+### CURDATE()
+#### 作用：返回当前日期 格式：YYYY-MM-DD
+
+# Attention
+- NULL 并不是值，它表示数值未知或者不确定。
+- NULL 无法和 0 或空格字符串 "" 进行比较，NULL 与 NULL 之间也无法比较
+
+-在使用 NOW() 和 CURTIME() 时，如果要精确的秒以后的时间的话，可以在（）中加数字，加多少，就表示精确到秒后多少位。比如 NOW(3) 就是精确到毫秒，表示为： 2021-03-31 15:27:20.645
