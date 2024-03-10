@@ -49,13 +49,61 @@ FROM `table_name`;
 #### 语法3：COUNT(DISTINCT column_name)
 #### 作用：不包括NULL行与重复行
 
+
+
+
 # 时间函数
+## 获取时间函数
 ### NOW()
 #### 作用：返回当前日期和时间 格式：YYYY-MM-DD hh:mm:ss
 ### CURTIME()
 #### 作用：返回当前时间 格式：hh:mm:ss
 ### CURDATE()
 #### 作用：返回当前日期 格式：YYYY-MM-DD
+
+### DATE()：提取日期
+### TIME():提取时间
+### DATE_FORMAT():格式化
+#### 语法：SELECT DATE_FORMAT(date,format);
+#### 语法;
+SELECT `name`, `created_at`, 
+	DATE_FORMAT(DATE(`created_at`),"%Y-%m-%d") AS `created_date`, 
+	DATE_FORMAT(TIME(`created_at`),"%H:%i:%s") AS `created_time`
+FROM `courses`;
+- 返回字符串。
+- %m 表示月份，%d 表示日期，%Y 表示年份，%w 表示星期
+
+
+### EXTRACT()函数:提取指定的时间信息
+#### 作用：只提取知道年份的信息或者小时的信息；EXTRACT() 函数用于返回日期/时间的单独部分，如 YEAR (年)、MONTH (月)、DAY (日)、HOUR (小时)、MINUTE (分钟)、 SECOND (秒)。
+#### 语法：
+SELECT EXTRACT(unit FROM date) --一般等效于 select unit(date) --
+FROM `table`
+- date 参数是合法的日期表达式、存储日期时间的列名字。
+- unit 参数是需要返回的时间部分，如 YEAR 、MONTH 、 DAY 、 HOUR 、MINUTE 、SECOND 等
+
+##修改时间函数
+### DATE_ADD(date, INTERVAL expr type)：增加时间
+#### 作用：增加时间
+- expr 为希望添加的时间间隔的数值
+- type 是具体的数据类型，表示加上时间间隔的单位（可以是 MICROSECOND , SECOND , MINUTE , HOUR , DAY , WEEK , MONTH , QUARTER , YEAR 等）
+#### 语法：
+SELECT DATE_ADD(date, INTERVAL expr type)
+FROM table_name
+
+### DATE_SUB()：减少时间
+#### 语法：同DATE_ADD()
+
+
+##计算时间差值函数
+### DATEDIFF(时间1,时间2)
+- 返回相差天数，不能精确定位到小时、分钟、秒。
+
+### TIMESTAMPDIFF()
+#### 语法：SELECT TIMESTAMPDIFF (类型,时间1,时间2)；
+- 差值计算规则：时间 2 - 时间 1
+- 可以精确到MICROSECOND , SECOND , MINUTE , HOUR , DAY , WEEK , MONTH , QUARTER , YEAR 等，更加灵活。
+
 
 # Attention
 - NULL 并不是值，它表示数值未知或者不确定。
