@@ -1,0 +1,50 @@
+# 语法学习
+### SELECT语句
+#### 语法1：SELECT `column_name` FROM `table_name`
+#### 作用：从数据库table_name中查询数据column_name【查询列数据】
+#### 语法2：SELECT `column_name1`, `column_name2` FROM `table_name`
+#### 作用：查询知道列名称的多列【查询列数据】
+#### 语法3：SELECT * FROM `table_name`
+#### 作用：查询所有列（当不知道列名的时候可用）【查询列数据】
+
+### DISTINCT语句
+#### 语法1：SELECT DISTINCT `column_name` FROM `table_name`
+#### 作用：从数据库table_name中查询数据column_name, 只输出不重复的列值【查询列数据】
+
+### WHERE语句
+#### 语法1：operator是运算符（>, =, <, !=, ...)
+SELECT `column_name1`,`column_name2`…
+FROM `table_name`
+WHERE `column_name` operator `value`;
+#### 作用：筛选操作【查询行数据】
+
+### INSERT INTO语句
+#### 语法1：
+INSERT INTO `table_name`
+VALUES (value1, value2, value3,...);
+#### 作用：添加一整行；不指定列名，插入行数据，value1是id，插入信息必须完整【查询行数据】
+#### 语法2：
+INSERT INTO `table_name`
+（`column1`, `column2`, `column3`,...）
+VALUES (value1, value2, value3,...);
+#### 作用：为某些列添加数据；columnx与valuex要对应【行操作】
+
+### UPDATE语句
+#### 语法1：
+UPDATE `table_name`（用于提示更新）
+SET `column1` = value1, `column2` = value2,...（用于赋值）
+WHERE `some_column` =some_value（用于定位）
+#### 作用：选取some_column=some_value行，对该行columnx进行值的更新。
+#### where：如果不设置where进行定位，将会更新所有columnx的值。
+
+### DELETE语句
+#### 语法1：delete from `table_name` where 条件
+#### 作用：从表中删除符合条件的行【【行操作】
+#### 语法1：delete from `table_name` 
+#### 作用：从表中删除所有行，留下表名【【行操作】
+
+
+
+
+# Attention！
+#### 反向符`` ！= '';""
