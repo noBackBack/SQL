@@ -42,3 +42,12 @@ order by age DESC
 SELECT DISTINCT age
 FROM teachers
 order by age DESC, name ASC
+
+### LIMIT语句
+#### 作用：限制输出行数
+#### 语法：
+SELECT *
+FROM teachers
+WHERE country='CN'
+order by age DESC
+LIMIT 1（限制一行）
